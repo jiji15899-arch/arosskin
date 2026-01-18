@@ -1,0 +1,674 @@
+/*
+Theme Name: 아로스 홈페이지 스킨
+Theme URI: https://aros100.com
+Author: 아로스
+Author URI: https://aros100.com
+Description: 블로거 홈페이지형 스킨을 워드프레스로 완벽 재현. 목차 스킨과 글쓰기 스킨 포함.
+Version: 1.0.0
+License: GNU General Public License v2 or later
+License URI: http://www.gnu.org/licenses/gpl-2.0.html
+Text Domain: aros-homepage
+Tags: blog, custom-menu, custom-colors, editor-style, responsive-layout
+*/
+
+/* ============================================
+   기본 스타일
+   ============================================ */
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Apple SD Gothic Neo', 'Noto Sans KR', sans-serif;
+}
+
+html {
+    height: 100%;
+}
+
+body {
+    min-height: 100%;
+    display: flex;
+    flex-direction: column;
+    margin: 0;
+    background-color: white;
+    padding-top: 120px;
+}
+
+.site-wrapper {
+    flex: 1 0 auto;
+}
+
+.container {
+    max-width: 768px;
+    margin: 0 auto;
+    padding: 8px 8px;
+}
+
+/* ============================================
+   헤더 스타일
+   ============================================ */
+.site-header {
+    position: fixed !important;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 40px !important;
+    background: white;
+    z-index: 1000;
+    margin: 0 !important;
+    padding: 0 !important;
+}
+
+.header-inner {
+    position: relative;
+    width: 100%;
+    background: white;
+    margin: 4px 0;
+}
+
+.header-inner .container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    max-width: 768px;
+    margin: 0 auto;
+    height: 24px;
+    padding: 0;
+    gap: 4px;
+}
+
+.site-logo {
+    display: flex;
+    align-items: center;
+    height: 24px;
+}
+
+.site-logo img {
+    height: 30px;
+    width: auto;
+    vertical-align: middle;
+}
+
+.site-title {
+    font-size: 20px;
+    font-weight: 600;
+    margin: 0 !important;
+    padding: 0 !important;
+    color: #000;
+    display: flex;
+    align-items: center;
+    height: 24px;
+    line-height: 24px;
+}
+
+.site-title a {
+    color: #000;
+    text-decoration: none;
+}
+
+/* ============================================
+   탭 메뉴
+   ============================================ */
+.tab-wrapper {
+    position: fixed;
+    top: 42px;
+    left: 0;
+    width: 100%;
+    background: white;
+    z-index: 999;
+    padding: 0;
+}
+
+.tab-container {
+    background: white;
+    border-radius: 50px;
+    padding: 2px;
+    margin: 0 auto;
+    max-width: 768px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+
+.tabs {
+    display: flex;
+    justify-content: space-between;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.tab-item {
+    flex: 1;
+    text-align: center;
+}
+
+.tab-link {
+    display: block;
+    padding: 12px 6px;
+    text-decoration: none;
+    color: #666;
+    border-radius: 25px;
+    transition: all 0.3s ease;
+    min-height: 42px;
+    line-height: 1.2;
+    word-break: keep-all;
+    font-size: 14px;
+}
+
+.tab-link.active {
+    background-color: #6528f7;
+    color: white;
+}
+
+.tab-link:hover {
+    text-decoration: none;
+}
+
+@media screen and (max-width: 370px) {
+    .tab-link {
+        font-size: 13px;
+        padding: 12px 4px;
+    }
+}
+
+/* ============================================
+   목차 스킨 - 콘텐츠 카드
+   ============================================ */
+.content-card {
+    background: #EEF1FF;
+    border-radius: 20px;
+    padding: 30px;
+    margin-bottom: 20px;
+    position: relative;
+    overflow: hidden;
+}
+
+.card-title {
+    font-size: 1.2rem;
+    font-weight: bold;
+    margin-bottom: 10px;
+    color: #333;
+}
+
+.card-text {
+    color: #666;
+    line-height: 1.6;
+}
+
+.card-icon {
+    position: absolute;
+    bottom: 20px;
+    right: 20px;
+    font-size: 4rem;
+    opacity: 0.8;
+    display: block;
+}
+
+.section-title {
+    font-size: 1.2rem;
+    font-weight: bold;
+    margin: 30px 0 15px 0;
+    color: #333;
+}
+
+/* ============================================
+   목차 스킨 - 지원금 카드 그리드
+   ============================================ */
+.support-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 15px;
+    margin-bottom: 30px;
+}
+
+.support-card {
+    display: block;
+    text-decoration: none;
+    background: white;
+    border-radius: 20px;
+    padding: 25px;
+    position: relative;
+    cursor: pointer;
+    transition: transform 0.2s ease;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    min-height: 120px;
+    border: none;
+}
+
+.support-card:hover {
+    transform: translateY(-5px);
+}
+
+/* 카드 색상 클래스 */
+.card-blue { background-color: #2196F3; }
+.card-teal { background-color: #0B6138; }
+.card-purple { background-color: #7E57C2; }
+.card-green { background-color: #31B404; }
+.card-cyan { background-color: #00BCD4; }
+.card-orange { background-color: #FF7043; }
+.card-darkblue { background-color: #1a237e; }
+.card-purple-light { background-color: #7E57C2; }
+.card-teal-dark { background-color: #00695c; }
+.card-blue2 { background-color: #2d6cfc; }
+.card-lightpurple { background-color: #d99dfc; }
+.card-blue3 { background-color: #8080e0; }
+.card-blue4 { background-color: #5353db; }
+.card-darkgold { background-color: #C0A000; }
+.card-amber { background-color: #FFBF00; }
+.card-mustard { background-color: #D4AF37; }
+.card-bronze { background-color: #CD7F32; }
+.card-darkyellow { background-color: #B8860B; }
+.card-forestgreen { background-color: #228B22; }
+.card-seagreen { background-color: #2E8B57; }
+.card-deeppurple { background-color: #6A0DAD; }
+.card-violet { background-color: #8A2BE2; }
+.card-royalblue { background-color: #4169E1; }
+.card-deepskyblue { background-color: #00BFFF; }
+
+.support-title {
+    color: white;
+    font-size: 1.1rem;
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+.support-subtitle {
+    color: rgba(255, 255, 255, 0.9);
+    font-size: 0.9rem;
+}
+
+.support-icon {
+    position: absolute;
+    bottom: 20px;
+    right: 20px;
+    font-size: 2rem;
+}
+
+/* ============================================
+   글쓰기 스킨 - 카드 스타일
+   ============================================ */
+.aros-blue-card {
+    background: #EEF6FF;
+    border-radius: 16px;
+    padding: 20px;
+    margin: 15px 0;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1), 0 1px 3px rgba(0, 0, 0, 0.06);
+}
+
+.aros-blue-card h2 {
+    font-size: 20px;
+    font-weight: bold;
+    color: #2196F3;
+    margin: 2px 0px 15px;
+}
+
+.aros-blue-card ul {
+    list-style: none;
+    padding-left: 0;
+}
+
+.aros-blue-card li {
+    position: relative;
+    padding-left: 15px;
+    margin-bottom: 10px;
+}
+
+.aros-blue-card li:before {
+    content: "•";
+    position: absolute;
+    left: 0;
+    color: #2196F3;
+}
+
+.aros-gray-card-center {
+    background: rgb(248, 249, 250);
+    border-radius: 16px;
+    padding: 25px;
+    text-align: center;
+    margin: 20px 0;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1), 0 1px 3px rgba(0, 0, 0, 0.06);
+}
+
+.aros-gray-card-center h2 {
+    font-size: 28px;
+    font-weight: bold;
+    color: #6528f7;
+    margin: 0px 0px 10px;
+}
+
+.aros-gray-card-center h3 {
+    font-size: 24px;
+    font-weight: bold;
+    color: #363636;
+    margin: 0px 0px 5px;
+}
+
+.aros-gray-card {
+    background: rgb(248, 249, 250);
+    border-radius: 16px;
+    padding: 25px;
+    margin: 20px 0;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1), 0 1px 3px rgba(0, 0, 0, 0.06);
+}
+
+.aros-gray-card h2 {
+    font-size: 28px;
+    font-weight: bold;
+    color: #6528f7;
+    margin: 0px 0px 10px;
+}
+
+.aros-gray-card h3 {
+    font-size: 23px;
+    font-weight: bold;
+    color: #363636;
+    margin: 0px 0px 5px;
+}
+
+.aros-gray-card ul {
+    list-style: none;
+    padding-left: 0;
+}
+
+.aros-gray-card li {
+    position: relative;
+    padding-left: 15px;
+    margin-bottom: 10px;
+}
+
+.aros-gray-card li:before {
+    content: "•";
+    position: absolute;
+    left: 0;
+    color: #6528f7;
+}
+
+.aros-gray-card .apply-date-text {
+    color: #6528f7;
+    font-size: 22px;
+    font-weight: bold;
+}
+
+.aros-gray-card .requirements,
+.aros-gray-card .documents {
+    padding: 20px;
+}
+
+.aros-white-card {
+    background: white;
+    border-radius: 16px;
+    padding: 20px;
+    margin: 15px 0;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1), 0 1px 3px rgba(0, 0, 0, 0.06);
+}
+
+.aros-white-card h2 {
+    font-size: 20px;
+    font-weight: bold;
+    color: #6528f7;
+    margin: 2px 0px 15px;
+}
+
+/* ============================================
+   버튼 스타일
+   ============================================ */
+.button-container {
+    background: rgb(101, 40, 247);
+    border-radius: 12px;
+    color: white;
+    cursor: pointer;
+    padding: 18px;
+    transition: 0.3s;
+}
+
+.button-container:hover {
+    transform: scale(1.01);
+    box-shadow: 0 4px 15px rgba(101, 40, 247, 0.3);
+}
+
+.button-content {
+    align-items: center;
+    display: flex;
+    justify-content: space-between;
+}
+
+.button-text {
+    font-size: 18px;
+    font-weight: 600;
+    letter-spacing: -0.5px;
+}
+
+.custom-link {
+    display: block;
+    margin: 10px 0px;
+    text-decoration: none;
+}
+
+/* ============================================
+   혜택 카드
+   ============================================ */
+.benefit-card {
+    background: rgb(248, 249, 251);
+    border-radius: 16px;
+    margin: 20px 0px;
+    padding: 25px;
+}
+
+.benefit-title {
+    align-items: center;
+    display: flex;
+    margin-bottom: 20px;
+}
+
+.benefit-title .icon {
+    color: #ff4d4d;
+    margin-right: 8px;
+}
+
+.benefit-list {
+    background: rgb(243, 244, 246);
+    border-radius: 12px;
+    padding: 20px;
+}
+
+.benefit-item {
+    align-items: center;
+    background: white;
+    border-radius: 12px;
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 12px;
+    padding: 16px;
+    transition: 0.3s;
+}
+
+.benefit-item:hover {
+    transform: scale(1.02);
+    background-color: #f8f9fa;
+}
+
+.benefit-text {
+    color: #333333;
+    font-weight: 600;
+    letter-spacing: -0.5px;
+}
+
+.bottom-button {
+    align-items: center;
+    background: rgb(101, 40, 247);
+    border-radius: 12px;
+    border: none;
+    color: white;
+    cursor: pointer;
+    display: flex;
+    font-size: 17px;
+    font-weight: 600;
+    justify-content: space-between;
+    letter-spacing: -0.5px;
+    margin-top: 20px;
+    padding: 18px;
+    transition: 0.3s;
+    width: 100%;
+}
+
+.bottom-button:hover {
+    transform: scale(1.02);
+    box-shadow: 0 4px 15px rgba(101, 40, 247, 0.3);
+}
+
+/* ============================================
+   광고 영역
+   ============================================ */
+.ad-container {
+    width: 100%;
+    margin: 20px 0;
+    min-height: 100px;
+    background: #f5f5f5;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 10px;
+}
+
+/* ============================================
+   푸터
+   ============================================ */
+.site-footer {
+    flex-shrink: 0;
+    background: #E3F2FD;
+    color: #333;
+    padding: 20px 0;
+    margin-top: 30px;
+    width: 100%;
+}
+
+.footer-content {
+    max-width: 768px;
+    margin: 0 auto;
+    padding: 0 15px;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+}
+
+.footer-left {
+    flex: 1;
+}
+
+.footer-right {
+    text-align: right;
+}
+
+.footer-right a {
+    color: #1976D2;
+    text-decoration: none;
+}
+
+.footer-right a:hover {
+    text-decoration: underline;
+}
+
+.footer-copyright {
+    color: #666;
+    font-size: 0.9rem;
+    margin-top: 10px;
+}
+
+.footer-brand {
+    font-size: 1.1rem;
+    font-weight: bold;
+    margin-bottom: 5px;
+    color: #1976D2;
+}
+
+.footer-info {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.footer-info li {
+    margin-bottom: 2px;
+    color: #666;
+    font-size: 0.9rem;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+/* ============================================
+   모바일 반응형
+   ============================================ */
+@media screen and (max-width: 480px) {
+    .footer-content {
+        flex-direction: column;
+        gap: 20px;
+        align-items: center;
+        text-align: center;
+    }
+    
+    .footer-left {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .footer-right {
+        text-align: center;
+        width: 100%;
+    }
+    
+    .footer-info li {
+        justify-content: center;
+    }
+    
+    .support-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 10px;
+    }
+    
+    .support-card {
+        padding: 15px;
+        height: 120px;
+        width: auto;
+    }
+    
+    .support-title {
+        font-size: 16px;
+    }
+    
+    .support-subtitle {
+        font-size: 16px;
+    }
+    
+    .support-icon {
+        font-size: 1.5rem;
+        bottom: 15px;
+        right: 15px;
+    }
+    
+    .content-card .card-icon {
+        display: none;
+    }
+}
+
+@media (min-width: 768px) {
+    html, body {
+        height: 100%;
+        margin: 0;
+    }
+    
+    .site-wrapper {
+        display: flex;
+        flex-direction: column;
+        min-height: 100%;
+    }
+    
+    .site-footer {
+        flex-shrink: 0;
+        margin-top: auto;
+    }
+  }
