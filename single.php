@@ -1,49 +1,48 @@
 <?php
 /**
- * 글쓰기 스킨 - 글 상세 페이지 (수정됨)
+ * 글쓰기 스킨 - 깔끔한 블로그 스타일 (수정됨)
  */
 
 get_header();
 ?>
 
-<?php
-while (have_posts()) : the_post();
-?>
+<div class="blog-post-wrapper">
+    <?php while (have_posts()) : the_post(); ?>
 
-<article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
-    
-    <?php if (is_singular('post')) : ?>
-    <header class="entry-header">
-        <div class="entry-meta-top">
-            <span class="post-category"><?php the_category(', '); ?></span>
-            <span class="post-date"><?php echo get_the_date('Y.m.d'); ?></span>
-        </div>
-        <h1 class="entry-title"><?php the_title(); ?></h1>
-    </header>
-    <?php endif; ?>
-    
-    <div class="entry-content">
-        <?php
-        the_content();
+    <article id="post-<?php the_ID(); ?>" <?php post_class('clean-blog-card'); ?>>
         
-        wp_link_pages(array(
-            'before' => '<div class="page-links">' . esc_html__('Pages:', 'aros-homepage'),
-            'after'  => '</div>',
-        ));
-        ?>
-    </div>
-    
-    <?php if (has_tag()) : ?>
-    <div class="entry-tags">
-        <?php the_tags('', '', ''); ?>
-    </div>
-    <?php endif; ?>
+        <?php if (is_singular('post')) : ?>
+        <header class="blog-header">
+            <div class="blog-meta">
+                <span class="cat-label"><?php the_category(' '); ?></span>
+                <span class="date-label"><?php echo get_the_date('Y.m.d'); ?></span>
+            </div>
+            <h1 class="blog-title"><?php the_title(); ?></h1>
+        </header>
+        <hr class="blog-divider">
+        <?php endif; ?>
+        
+        <div class="entry-content blog-content">
+            <?php
+            the_content();
+            
+            wp_link_pages(array(
+                'before' => '<div class="page-links">' . esc_html__('Pages:', 'aros-homepage'),
+                'after'  => '</div>',
+            ));
+            ?>
+        </div>
+        
+        <?php if (has_tag()) : ?>
+        <div class="blog-tags">
+            <?php the_tags('#', ' #', ''); ?>
+        </div>
+        <?php endif; ?>
 
-</article>
+    </article>
 
-<?php
-endwhile;
-?>
+    <?php endwhile; ?>
+</div>
 
 <?php
 get_footer();
